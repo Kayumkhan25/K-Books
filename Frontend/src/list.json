@@ -1,0 +1,109 @@
+[{
+        "id": 1,
+        "name": "Story Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 109,
+        "category": "free",
+        "image": "https://img.freepik.com/free-vector/three-giraffes-living-by-river_1308-55578.jpg?t=st=1726900444~exp=1726904044~hmac=a20e31a38c1b3c93df2389fa3327dea5522d42f5ba62d0400818e587ad71ec41&w=996"
+    }
+
+    ,
+    {
+        "id": 2,
+        "name": "Music Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 0,
+        "category": "free",
+        "image": "https://img.freepik.com/free-photo/black-earphone-musical-note-with-digital-tablet_23-2147889336.jpg?t=st=1726900853~exp=1726904453~hmac=0309d497cca4f5534b0be07925c09aff8928446bdd3fc49315188a84e541bd7d&w=1060"
+    }
+
+    ,
+    {
+        "id": 3,
+        "name": "Horror Book ",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 149,
+        "category": "free",
+        "image": "https://img.freepik.com/free-vector/little-ghost-girl-with-gravestone-crow_1308-75058.jpg?t=st=1726900302~exp=1726903902~hmac=ef4f42741c8d1d4e388e2f0ea8eed805ed8e2c0023a795b2c38e24aeef31089f&w=740"
+    }
+
+    ,
+    {
+        "id": 4,
+        "name": "Comic Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 49,
+        "category": "free",
+        "image": "https://img.freepik.com/free-psd/realistic-books-illustration_23-2150583561.jpg?t=st=1726899756~exp=1726903356~hmac=fe141a559a770a4770e7f883e7d5f8aa67ed6b8e53a022f3fe2f993c368f7583&w=740"
+    }
+
+    ,
+    {
+        "id": 5,
+        "name": "Recipe Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 69,
+        "category": "free",
+        "image": "https://img.freepik.com/free-photo/top-view-tasty-soup-cooked-bean-soup-with-seasonings-light-white-surface-vegetable-meal-food-soup-bean_140725-74811.jpg?t=st=1726901032~exp=1726904632~hmac=81f012b6367d04ffb006d9bcce990dfaf8e100a86e6c85fcea44ad05e5b67ff6&w=1060"
+    }
+
+    ,
+    {
+        "id": 6,
+        "name": "Thriller Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 159,
+        "category": "free",
+        "image": "https://img.freepik.com/free-photo/close-up-open-book-with-bookmark_1160-200.jpg?t=st=1726901086~exp=1726904686~hmac=cc2943ca385b290593ee4015328ad96c598b398500129f4e28c3eb1e7d6052ac&w=826"
+    }
+
+    ,
+    {
+        "id": 7,
+        "name": "Adventure Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 0,
+        "category": "free",
+        "image": "https://img.freepik.com/free-vector/opened-book-with-prehistoric-forest_1308-110516.jpg?t=st=1726901418~exp=1726905018~hmac=fbef94d3a8c9fe79bdfbd84d44f216b2c6f3ae459c3d0bc6c1017980b6e486e9&w=740"
+    }
+
+    ,
+    {
+        "id": 8,
+        "name": "History Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 89,
+        "category": "free",
+        "image": "https://img.freepik.com/free-photo/view-3d-book-with-knight_23-2151103711.jpg?t=st=1726901466~exp=1726905066~hmac=f6edb3c06dd1c9844dabf58975dac88e52d4c6c184ab01a74ac927504f6c02b9&w=1060"
+    },
+
+    {
+        "id": 9,
+        "name": "Action Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 199,
+        "category": "free",
+        "image": "https://img.freepik.com/premium-photo/mysterious-horror-suspense-thriller-book-cover-design_1004054-5650.jpg?w=740"
+    }
+
+    ,
+    {
+        "id": 10,
+        "name": "Globe Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 0,
+        "category": "free",
+        "image": "https://img.freepik.com/free-photo/view-3d-book-with-globe_23-2151103698.jpg?t=st=1726901630~exp=1726905230~hmac=9446894b580d5d87b4cb8511890b358a0fe90a8faa8ce9659d91346b65e3cb23&w=740"
+    }
+
+    ,
+    {
+        "id": 11,
+        "name": "Treasure Book",
+        "title": "The best stories are those that teach us to see the world through new eyes.",
+        "price": 0,
+        "category": "free",
+        "image": "https://img.freepik.com/premium-photo/magnifying-glass-open-paper-art-book-with-pages-concept-academic-research_361816-3923.jpg?w=1380"
+    }
+
+]
