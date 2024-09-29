@@ -25,9 +25,9 @@ try {
     console.log("Get error: ", error);
 }
 
-// app.get("/", (req, res) => {
-//     res.send("Hello!");
-// })
+app.get("/", (req, res) => {
+    res.send("Server is running"); 
+})
 
 // user route
 app.use("/book", bookRoute);
