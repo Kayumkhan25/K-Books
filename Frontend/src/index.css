@@ -1,11 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 body {
-    font-family: "Roboto Slab", sans-serif;
+    font-family: "Poppins", serif;
 }
 
 .shadow_effect {
-    box-shadow: rgba(38, 120, 66, 0.25) 10px 50px 80px -10px, rgba(39, 187, 74, 0.3) 10px -20px 90px 3px, rgba(17, 195, 59, 0.35) 0px 2px 6px 0px inset;
+    box-shadow: rgba(42, 135, 73, 0.25) 10px 50px 80px -10px, rgba(39, 187, 74, 0.3) 10px -20px 90px 3px, rgba(11, 164, 47, 0.35) 0px 2px 6px 0px inset;
+}
+
+.navbar,
+.footer_section {
+    font-family: "Roboto", sans-serif;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(10, 10, 10, 0.75);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+input:hover+.tooltip {
+    display: block;
+}
+
+.gradient_color {
+    background: linear-gradient(60deg, rgb(5, 139, 14) 20%, rgb(7, 134, 134) 30%, rgb(4, 167, 88) 80%, rgb(3, 144, 137) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.form input,
+.form textarea,
+.form select {
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px;
+    border-bottom: .5px solid #585d69;
 }

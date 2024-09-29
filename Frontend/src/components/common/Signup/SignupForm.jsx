@@ -5,81 +5,56 @@ import { useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
-const SignupForm = (props) => {
-    const setIsLoggedIn = props.setIsLoggedIn;
-        
-    // const [formData, setFormData] = useState({
-    //     firstName: "",
-    //     lastName: "",
-    //     email: "",
-    //     password: "",
-    //     confirmPassword: ""
-    // })
+import axios from "axios";
+
+const SignupForm = () => {
+ 
     
     const [showCreatePass, setShowCreatePass] = useState(false);
     const [showConfirmPass, setShowConfirmPass] = useState(false);
     const navigate = useNavigate();
-    
-    // function changeHandler(event) {
-    //     setFormData((prevData) => ({
-    //         ...prevData,
-    //         [event.target.name]: event.target.value
-    //     }));
-    // }
-    
-    // function submitHandler(event) {
-    //     event.preventDefault();
-    //     if (formData.password !== formData.confirmPassword) {
-    //         toast.error("Passwords are not same");
-    //         return;
-    //     }
-    //     setIsLoggedIn(true); 
-    //     toast.success("Account created");
-    //     const accountData = {
-    //         ...formData
-    //     };
-    //     const finalData = {
-    //         ...accountData
-    //     }
         
-    //     console.log("Printing Fina A/C data");
-    //     console.log(finalData);
-         
-    //     navigate("/dashboard");
-    // }
-    
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors }
       } = useForm();
-      const submitHandler = (data) => {
-        console.log(data);
+      const submitHandler = async (data) => {
         if (data.password !== data.confirmpassword) {
             toast.error("Passwords are not same");
             return;
         }
-        setIsLoggedIn(true); 
-        toast.success("Account created");
-        const accountData = {
-            ...formData
-        };
-        const finalData = {
-            ...accountData
-        }
-        
-        console.log("Printing Fina A/C data");
-        console.log(finalData);
-            
-        navigate("/dashboard");
-
-      };
-    
+        const userInfo = {
+            firstName: data.firstname,
+            lastName: data.lastname,
+            email: data.email,
+            password: data.password,
+            confirmPassword : data.confirmpassword   
+        } 
+         await axios
+        .post("http://localhost:8080/user/signup", userInfo)
+        .then ((res) => {
+            console.log(res.data);
+            if(res.data) {
+                toast.success("Sign Up Successfully");    
+                setTimeout(() => {
+                    navigate("/");
+                    window.location.reload();
+                }, 3000);          
+            }
+            localStorage.setItem("Users", JSON.stringify(res.data.user));
+        }) .catch ((err) => {
+            if(err.response) {
+                console.log(err);
+                toast.error("error", err.response.data);
+            }
+        })
+    }
   return (
     <div>
         <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col gap-y-4 text-sm">
-            <div className="flex justify-between gap-x-3">
+            <div className="md:flex justify-between gap-x-3">
                 <label className="w-full">
                     <p className="mb-1 text-[15px]">First Name<sup className="text-red-500">*</sup></p>
                     <input 
@@ -88,10 +63,10 @@ const SignupForm = (props) => {
                         // value={formData.firstName}
                         // onChange={changeHandler}
                         placeholder="Enter your first name"
-                        className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                        className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 mb-4 md:mb-0 w-full"
                         {...register("firstname", { required: true })}
                     />
-                    {errors.firstname && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
+                    {errors.firstname && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
                 </label>
                 <label className="w-full">
                     <p className="mb-1 text-[15px]">Last Name<sup className="text-red-500">*</sup></p>
@@ -104,7 +79,7 @@ const SignupForm = (props) => {
                         className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                         {...register("lastname", { required: true })}                        
                     />
-                    {errors.lastname && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
+                    {errors.lastname && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
                 </label>
             </div>
             <label>
@@ -112,28 +87,28 @@ const SignupForm = (props) => {
                 <input 
                     type="email"
                     name="email"
-                    // value={formData.email}
-                    // onChange={changeHandler}
                     placeholder="Enter email address"
                     className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                     {...register("email", { required: true })}
                 />
-                {errors.email && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
+                {errors.email && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
             </label>
-            <div className="flex justify-between gap-x-3">
+            <div className="md:flex justify-between gap-x-3">
                 <label className="relative w-full">
                     <p className="mb-1 text-[15px]">Create password<sup className="text-red-500">*</sup></p>
                     <input 
                         type={showCreatePass ? ("text") : ("password")}
                         name="password"
-                        className="pr-9 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
-                        // value={formData.password}
-                        // onChange={changeHandler}
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                        className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full  mb-4 md:mb-0"
                         placeholder="Enter password"
                         {...register("password", { required: true })}
                     />
-                    {errors.password && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
-                    <span className="absolute right-2 cursor-pointer top-11"
+                     <div class="tooltip z-10">
+                        Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number, and one special character.
+                    </div>
+                    {errors.password && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
+                    <span className="absolute right-2 cursor-pointer top-9"
                         onClick={() => setShowCreatePass(!showCreatePass)}
                         >
                         {showCreatePass ? (
@@ -148,14 +123,16 @@ const SignupForm = (props) => {
                     <input 
                         type={showConfirmPass ? ("text") : ("password")}
                         name="confirmPassword"
-                        className="pr-9 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
-                        // value={formData.confirmPassword}
-                        // onChange={changeHandler}      
+                        className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
                         placeholder="confirm password"
                         {...register("confirmpassword", { required: true })}
                     />
-                    {errors.confirmpassword && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
-                    <span className="absolute right-2 cursor-pointer top-11"
+                    <div class="tooltip">
+                        Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
+                    </div>
+                    {errors.confirmpassword && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
+                    <span className="absolute right-2 cursor-pointer mt-2 md:top-9"
                         onClick={() => setShowConfirmPass(!showConfirmPass)}
                         >
                         {showConfirmPass ? (

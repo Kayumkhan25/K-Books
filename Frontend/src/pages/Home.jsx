@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/common/Home/Banner";
 import Unpaid from "../components/common/Home/Unpaid";
 
 const Home = () => {
+  
+  useEffect(() => {
+    document.title = "K-Books | Home"
+  }, [])
+  
   return (
-    <div className="min-h-screen">   
+    <div className="min-h-min">   
         <div>
           <Banner />
         </div>

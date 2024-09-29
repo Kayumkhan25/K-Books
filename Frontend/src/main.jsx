@@ -3,14 +3,20 @@ import App from './App.jsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import AuthProvider from './context/AuthProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <div className="dark:bg-[#000814] dark:text-white">
-      <App />
-    </div>
-    <Toaster />
+    <AuthProvider>
+      <div className="dark:bg-[#000814] dark:text-white">
+        <App />
+      </div>
+    </AuthProvider>
+    <Toaster
+      toastOptions={{
+        // Define default options
+        className: '',
+        duration: 4000,
+      }}/>
   </BrowserRouter>
-    
-
 )

@@ -6,47 +6,45 @@ import toast from "react-hot-toast";
 
 import { useForm } from "react-hook-form";
 
-const LoginForm = (props) => {
+import axios from "axios";
+
+const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const setIsLoggedIn = props.setIsLoggedIn;
     const navigate = useNavigate();
     
-
-    // function changeHandler(event) {
-    //     setFormData([
-    //       (prev) => [
-    //         {
-    //           ...prev,
-    //           [event.target.name]: event.target.value,
-    //         },
-    //       ],
-    //     ]);
-    //   }
-    
-    // const [formData, setFormData] = useState({
-    //     email: "",
-    //     password: ""
-    // });
-    // console.log(setFormData);
-     
-    // function submitHandler (event) {
-    //     event.preventDefault();
-    //     setIsLoggedIn(true);
-    //     toast.success("Logged In");
-    //     navigate("/");
-    // }
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors }
-      } = useForm();
-      const submitHandler = (data) => {
-        console.log(data);
-        setIsLoggedIn(true);
-        toast.success("Logged In");
-        navigate("/");
-      };
+    } = useForm();
+    const submitHandler = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password  
+        } 
+        await axios
+        .post("http://localhost:8080/user/login", userInfo)
+        .then ((res) => {
+            console.log(res.data);
+            if(res.data) {
+                toast.success("Log In Successfully");    
+                setTimeout(() => {
+                    navigate("/");              
+                    window.location.reload();
+                    localStorage.setItem("Users", JSON.stringify(res.data.user));
+                }, 3000);
+            }
+        }) .catch ((err) => {
+            if(err.response) {
+                console.log(err);
+                toast.error("error", err.response.data);
+                setTimeout(() => {
+                    
+                }, 3000);
+            }
+        })
+    };
     
   return (
     <div>
@@ -60,20 +58,20 @@ const LoginForm = (props) => {
                     name="email"  placeholder="Enter email id" 
                     // onChange={changeHandler}  
                      {...register("email", { required: true })}/>
-                     {errors.email && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
+                     {errors.email && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
             </label>
             <label className="relative">
                 <p className="mb-2 text-[15px]">
                     Password<sup className="text-red-500">*</sup>
                 </p>
                 <input type={showPassword ? ("text") : ("password")} 
-                    className="pr-9 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                    className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                     name="password"  placeholder="Enter Password" 
                     // onChange={changeHandler} 
                     {...register("password", { required: true })}
                 />
-                {errors.password && <p className="text-red-500 leading-8 pl-1">This field is required</p>}
-                <span className="absolute right-2 top-11 cursor-pointer" onClick={() => setShowPassword((prev) => !prev)}>
+                {errors.password && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
+                <span className="absolute right-2 top-10 cursor-pointer" onClick={() => setShowPassword((prev) => !prev)}>
                     {showPassword ? (<AiOutlineEye fontSize={25} fill="#AFB2BF"/>) : (<AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/>)}
                 </span>
                 

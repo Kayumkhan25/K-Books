@@ -1,9 +1,12 @@
 import React from "react";
-import list from "../../../list.json";
+import { useState, useEffect } from "react";
+// import list from "../../../list.json";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import axios from "axios";
 
 import Cards from "./Cards";
 
@@ -18,7 +21,7 @@ const Unpaid = () => {
         initialSlide: 0,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1120,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
@@ -44,24 +47,40 @@ const Unpaid = () => {
         ]
     };
      
-    const filterData = list.filter((data) => data.price === 0);
+    const [books, setBooks] = useState([]);
+  
+    useEffect(() => {
+        const getBook = async () => {
+        try {
+            // use axios to get data from backend
+            const res = await axios.get("http://localhost:8080/book");
+            const data = res.data.filter((data) => data.price === 0)
+            console.log(data);
+            setBooks(data);
+        } catch (error) {
+            console.log("error:", error);
+        }
+        };
+        getBook(); 
+    }, []);
+    // const filterData = list.filter((data) => data.price === 0);
     // console.log(filterData);
     
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
         <div className="mb-6 md:mb-8">
-            <h1 className="text-xl font-semibold pb-2">
+            <h1 className="text-2xl font-semibold pb-3">
                 Read for Free
             </h1>
-            <p>
-                Every free book is an opportunity—a chance to learn, grow, and escape into new realities. 
-                In a world where knowledge should be accessible to all, we believe that every story deserves to be shared.
+            <p className="text-lg">
+                "Every free book is an opportunity—a chance to learn, grow, and escape into new realities. 
+                In a world where knowledge should be accessible to all, we believe that every story deserves to be shared."
             </p>
         </div>
         <div className="slider-container max-w-screen-xl mx-auto">
             <Slider {...slides}>
                 {
-                    filterData.map((item) => (
+                    books.map((item) => (
                         <Cards item = {item} key={item.id}/>
                     ))
                 }
