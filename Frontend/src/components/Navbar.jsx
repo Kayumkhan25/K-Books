@@ -28,7 +28,7 @@ const Navbar = () => {
             localStorage.setItem("theme", "light");
             document.body.classList.remove("dark");
         }
-    },[theme])
+    })
     
     
     const [sticky, setSticky] = useState(false);
