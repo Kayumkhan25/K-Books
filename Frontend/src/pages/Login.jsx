@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import loginImg from "../assets/images/login.jpg";
-import Templete from "../Components/Templete";
+import Templete from "../components/Templete";
 
 const Login = () => {
   
@@ -10,11 +10,11 @@ const Login = () => {
   
   return (
     <Templete 
-        title="Log In to Continue Your Journey"
-        desc1="Rejoin the Adventure and Discover More Books!"
-        desc2="Enter to Unlock Exclusive Content and Recommendations."
-        image={loginImg}
-        formType="login" 
+      title="Log In to Continue Your Journey"
+      desc1="Rejoin the Adventure and Discover More Books!"
+      desc2="Enter to Unlock Exclusive Content and Recommendations."
+      image={loginImg}
+      formType="login" 
     />
   );
 }
