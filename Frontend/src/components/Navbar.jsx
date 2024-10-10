@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthProvider";
 import Logout from "./Logout";
 import IfLogin from "./IfLogin";
 
-import Logo from "../assets/images/Logo.png";
+import Logo from "../assets/images/logo.png";
 
 
 
