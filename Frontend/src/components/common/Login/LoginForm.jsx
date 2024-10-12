@@ -54,7 +54,7 @@ const LoginForm = () => {
                     Email Address<sup className="text-red-500">*</sup>
                 </p>
                 <input type="email"  
-                    className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                    className="text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                     name="email"  placeholder="Enter email id" 
                     // onChange={changeHandler}  
                      {...register("email", { required: true })}/>
@@ -65,7 +65,7 @@ const LoginForm = () => {
                     Password<sup className="text-red-500">*</sup>
                 </p>
                 <input type={showPassword ? ("text") : ("password")} 
-                    className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                    className="pr-10 text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                     name="password"  placeholder="Enter Password" 
                     // onChange={changeHandler} 
                     {...register("password", { required: true })}

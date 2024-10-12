@@ -19,7 +19,7 @@ const Cards = ({item}) => {
                     <h2 className="card-title font-serif">{item.name}</h2>
                     <p className="italic font-serif pb-1">{item.title}</p>
                     <div className="card-actions justify-between w-11/12 mx-auto">
-                        <div className="badge border-2 border-green-400 font-semibold px-4 py-3">Rs.{item.price}/-</div>
+                        <div className="badge border-2 border-green-400 font-semibold px-4 py-3">Rs. {item.price}/-</div>
                         <div className=" border-2 border-green-600 bg-green-600 rounded-full cursor-pointer text-white px-3 py-[2px] hover:bg-green-700 hover:font-[500] hover:border-green-500 transition-all duration-300">Buy Now</div>
                     </div>
                 </div>

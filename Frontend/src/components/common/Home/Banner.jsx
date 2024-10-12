@@ -4,7 +4,7 @@ import banner from "../../../assets/images/banner.png";
 const Banner = () => {
     
     const email = (
-        <label className="input input-bordered flex items-center gap-2
+        <label className="input input-bordered flex items-center gap-2 bg-slate-100
              dark:bg-slate-800
             ">
             <svg

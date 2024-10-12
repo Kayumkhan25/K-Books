@@ -54,7 +54,7 @@ const ContactForm = () => {
                         <input 
                             type="text"
                             name="firstName"
-                            className="dark:bg-slate-800 mb-5 md:mb-0"
+                            className="bg-slate-100 dark:bg-slate-800 mb-5 md:mb-0"
                             placeholder="Enter your first name"
                             value={formData.firstName}
                             onChange={changeHandler}
@@ -70,7 +70,7 @@ const ContactForm = () => {
                             value={formData.lastName}
                             onChange={changeHandler}
                             required
-                            className="dark:bg-slate-800"
+                            className="bg-slate-100 dark:bg-slate-800"
                         />
                     </label>
                 </div>
@@ -83,7 +83,7 @@ const ContactForm = () => {
                         value={formData.email}
                         onChange={changeHandler}
                         required
-                        className="dark:bg-slate-800"
+                        className="bg-slate-100 dark:bg-slate-800"
                         
                     />
                 </label>
@@ -101,7 +101,7 @@ const ContactForm = () => {
                             name="firstname"
                             id="firstname"
                             placeholder="Enter first name"
-                                className="pl-[2px] mb-1 leading-6 dark:bg-slate-800"
+                                className="pl-[2px] mb-1 leading-6 bg-slate-100 dark:bg-slate-800"
                                 {...register("countrycode", { required: true })}
                                 >
                                 {CountryCode.map((ele, i) => {
@@ -122,7 +122,7 @@ const ContactForm = () => {
                             value={formData.phonenumber}
                             onChange={changeHandler}
                             placeholder="01234 56789"
-                            className="pl-[2px] mb-1 leading-6 dark:bg-slate-800"                           
+                            className="pl-[2px] mb-1 leading-6 bg-slate-100 dark:bg-slate-800"                           
                             />
                         </div>
                     </div>
@@ -140,7 +140,7 @@ const ContactForm = () => {
                     placeholder="Enter your message here"
                     value={formData.message}
                     onChange={changeHandler}
-                    className="pl-[2px] mb-1 leading-6 dark:bg-slate-800"
+                    className="pl-[2px] mb-1 leading-6 bg-slate-100 dark:bg-slate-800"
                     required
                    />
                 </div>

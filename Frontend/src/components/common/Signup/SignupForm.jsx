@@ -63,7 +63,7 @@ const SignupForm = () => {
                         // value={formData.firstName}
                         // onChange={changeHandler}
                         placeholder="Enter your first name"
-                        className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 mb-4 md:mb-0 w-full"
+                        className="text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 mb-4 md:mb-0 w-full"
                         {...register("firstname", { required: true })}
                     />
                     {errors.firstname && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
@@ -76,7 +76,7 @@ const SignupForm = () => {
                         // value={formData.lastName}
                         // onChange={changeHandler}
                         placeholder="Enter your last name" 
-                        className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                        className="text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                         {...register("lastname", { required: true })}                        
                     />
                     {errors.lastname && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
@@ -88,7 +88,7 @@ const SignupForm = () => {
                     type="email"
                     name="email"
                     placeholder="Enter email address"
-                    className="text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                    className="text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                     {...register("email", { required: true })}
                 />
                 {errors.email && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
@@ -100,7 +100,7 @@ const SignupForm = () => {
                         type={showCreatePass ? ("text") : ("password")}
                         name="password"
                         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
-                        className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full  mb-4 md:mb-0"
+                        className="pr-10 text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full  mb-4 md:mb-0"
                         placeholder="Enter password"
                         {...register("password", { required: true })}
                     />
@@ -123,7 +123,7 @@ const SignupForm = () => {
                     <input 
                         type={showConfirmPass ? ("text") : ("password")}
                         name="confirmPassword"
-                        className="pr-10 text-[16px] text-black border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
+                        className="pr-10 text-[16px] text-black bg-slate-100 dark:bg-slate-900 dark:text-white border-t-[1px] rounded-lg shadow-md shadow-green-600 p-3 w-full"
                         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
                         placeholder="confirm password"
                         {...register("confirmpassword", { required: true })}
@@ -132,7 +132,7 @@ const SignupForm = () => {
                         Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
                     </div>
                     {errors.confirmpassword && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
-                    <span className="absolute right-2 cursor-pointer mt-2 md:top-9"
+                    <span className="absolute right-2 cursor-pointer mt-2 md:top-7"
                         onClick={() => setShowConfirmPass(!showConfirmPass)}
                         >
                         {showConfirmPass ? (

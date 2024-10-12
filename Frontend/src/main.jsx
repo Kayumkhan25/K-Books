@@ -8,7 +8,7 @@ import AuthProvider from './context/AuthProvider.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthProvider>
-      <div className="dark:bg-[#000814] dark:text-white">
+      <div className="bg-white text-slate-900 dark:bg-[#000814] dark:text-white">
         <App />
       </div>
     </AuthProvider>

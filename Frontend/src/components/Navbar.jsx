@@ -140,14 +140,14 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold
-                            dark:bg-slate-950"
+                        className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-40 p-2 shadow font-bold bg-slate-100
+                            dark:bg-slate-900"
                         >
                        {navItems}
                     </ul>
                 </div>
-                <Link to="/" className="cursor-pointer">
-                <img src={Logo} className="w-40 md:w-48 px-2 py-1 h-full"/>
+                <Link to="/" className="cursor-pointer ">
+                    <img src={Logo} className="w-40 md:w-48 px-2 py-1 h-full"/>
                 </Link>
             </div>
             <div className="navbar-end gap-x-3">

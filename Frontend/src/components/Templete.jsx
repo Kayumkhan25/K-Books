@@ -13,8 +13,7 @@ const Templete = ({title, desc1, desc2, image, formType}) => {
           ("md:pt-12 pb-10") :
           ("pb-12 md:pb-1")
         } `} >
-        <img src={image} className="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px] shadow_effect rounded-full"
-            
+        <img src={image} className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px] shadow_effect rounded-full"
           alt="reading" loading="lazy"/>
       </div>
       <div className="max-w-[450px] w-11/12 mx-auto">
@@ -38,7 +37,7 @@ const Templete = ({title, desc1, desc2, image, formType}) => {
             formType === "signup" ?
             (
               <div>
-                Already have account? <Link to="/login" className="underline text-blue-500 font-semilbold">Log in</Link>
+                Already have account? <Link to="/login" className="underline text-blue-500 font-semibold">Log in</Link>
               </div>
             ) :
             (<div>
