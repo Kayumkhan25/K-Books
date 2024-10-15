@@ -69,7 +69,7 @@ const Navbar = () => {
     )
     
     const darkMode = (
-        <div>
+        <div className="">
             <label className="grid cursor-pointer place-items-center"
                 onClick={() => setTheme( theme === "dark" ? 
                     "light" :
