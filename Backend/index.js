@@ -10,11 +10,7 @@ const app = express();
 
 
 app.use(cors(
-    {
-        origin: ["https://backend-alpha-jade-86.vercel.app/"],
-        methods: ["POST", "GET"],
-        Credentials: true
-    }
+    {}
 ));
 app.use(express.json());
 
