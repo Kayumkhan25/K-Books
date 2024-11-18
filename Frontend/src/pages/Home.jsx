@@ -3,7 +3,7 @@ import Banner from "../components/common/Home/Banner";
 import Unpaid from "../components/common/Home/Unpaid";
 
 const Home = () => {
-  
+   
   useEffect(() => {
     document.title = "K-Books | Home"
   }, [])
