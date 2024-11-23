@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Contact from "./pages/Contact";
 
 import { useAuth } from "./context/AuthProvider";
+import MainHeader from "./pages/MainHeader";
 
 const App = () => {
   
@@ -24,7 +25,10 @@ const App = () => {
     <div className="pb-6">
       <Navbar  />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<MainHeader />} />
+        {/*  Default Route */}
+        <Route index element={<Home />}/>
+        
         <Route path="/Library" element={ authUser ? <Library /> : <Navigate to="/login"/>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
