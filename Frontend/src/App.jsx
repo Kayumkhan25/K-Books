@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 
 import { useAuth } from "./context/AuthProvider";
 import MainHeader from "./pages/MainHeader";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   
@@ -35,6 +36,9 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
+        {/* if page not found */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>
     </div>
