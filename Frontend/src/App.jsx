@@ -26,6 +26,7 @@ const App = () => {
       <Navbar  />
       <Routes>
         <Route path="/" element={<MainHeader />} />
+        
         {/*  Default Route */}
         <Route index element={<Home />}/>
         
