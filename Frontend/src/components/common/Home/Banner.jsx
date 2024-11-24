@@ -1,7 +1,25 @@
 import React from "react";
 import banner from "../../../assets/images/banner.png";
+import { useState,useEffect } from "react";
 
 const Banner = () => {
+    
+    const [color, setColor] = useState("#7b18b1");
+  
+    // Array of colors you want to cycle through
+    const colors = ['#b13f3f', '#17829a', '#0d2c9e', '#2aad1e', '#cc1ea4'];
+    
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        // Get a random color from the colors array
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        setColor(randomColor);
+      }, 3000);
+      
+      // Cleanup the interval on component unmount
+      return () => clearInterval(intervalId); 
+    }, [])
+    
     
     const email = (
         <label className="input input-bordered flex items-center gap-2 bg-slate-100
@@ -37,7 +55,9 @@ const Banner = () => {
                     {email}
                 </div>
                 <a href="/contact">
-                    <button className="px-4 py-2 rounded-md bg-green-500 hover:bg-green-700 text-white mt-5 md:mt-6 transition-all duration-300">
+                    <button className="px-4 py-2 rounded-md text-white mt-5 md:mt-6 transition-all duration-300"
+                    style={{backgroundColor: color}}
+                    >
                         Contact
                     </button>
                 </a>
