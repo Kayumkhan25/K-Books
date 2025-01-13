@@ -1,6 +1,4 @@
 import User from "../model/userModelSchema.js";
-
-// for hashing
 import bcryptjs from "bcryptjs";
 
 // Signup

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cards from "../Home/Cards";
 
-// import list from  "../../../list.json";
-
 import axios from "axios";
 
 
@@ -11,7 +9,7 @@ const Course = () => {
   const [books, setBooks] = useState([]);
   
   useEffect(() => {
-    const getBook = async () => {
+    const getBook = async () => { 
       try {
         // use axios to get data from backend
         const res = await axios.get("http://localhost:8080/book");
@@ -21,7 +19,7 @@ const Course = () => {
         console.log("error:", error);
       }
     };
-    getBook(); 
+    getBook();
   }, []);
   
   return (

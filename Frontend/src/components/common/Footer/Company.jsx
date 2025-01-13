@@ -91,7 +91,7 @@ const Company = () => {
                 <div>
                     <p className="text-xl mb-2 font-semibold">Support</p>
                     <div className="flex flex-col gap-2 dark:text-slate-400 text-slate-500 font-semibold">
-                        <a href="" className="text-[14px] cursor-pointer hover:text-slate-400 dark:hover:text-slate-200 transition-all duration-200">Help Center</a>
+                        <a href="#" className="text-[14px] cursor-pointer hover:text-slate-400 dark:hover:text-slate-200 transition-all duration-200">Help Center</a>
                     </div>
                 </div>
             </div>

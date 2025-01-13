@@ -1,6 +1,7 @@
 import React from "react";
 import banner from "../../../assets/images/banner.png";
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     
@@ -54,13 +55,13 @@ const Banner = () => {
                     </p>
                     {email}
                 </div>
-                <a href="/contact">
+                <Link to="/contact">
                     <button className="px-4 py-2 rounded-md text-white mt-5 md:mt-6 transition-all duration-300"
                     style={{backgroundColor: color}}
                     >
                         Contact
                     </button>
-                </a>
+                </Link>
             </div>
             <div className="w-full lg:w-1/2 order-1">
                 <img src={banner} alt="banner" className="w-11/12 md:w-full md:h-full px-5"/>

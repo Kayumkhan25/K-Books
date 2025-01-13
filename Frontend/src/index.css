@@ -47,6 +47,11 @@ input:hover+.tooltip {
     border-bottom: .5px solid #585d69;
 }
 
+.slick-carousel {
+    font-family: "Slick", sans-serif;
+    /* Fallback to sans-serif if the font is slow to load */
+}
+
 
 /* NotFound.css */
 
