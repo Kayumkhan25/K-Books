@@ -53,9 +53,8 @@ const Unpaid = () => {
         const getBook = async () => {
         try {
             // use axios to get data from backend
-            const res = await axios.get("http://localhost:8080/book");
+            const res = await axios.get("https://k-books-rl2y.onrender.com/book");
             const data = res.data.filter((data) => data.price === 0)
-            console.log(data);
             setBooks(data);
         } catch (error) {
             console.log("error:", error);

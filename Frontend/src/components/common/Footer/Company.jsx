@@ -20,13 +20,13 @@ const Company = () => {
        // "Code challenges",
         "Docs",
         "Projects",
-        "Videos",
+        // "Videos",
         "Workspaces",
     ]
     
     const plans =[
         "Paid memberships",
-        "For students", 
+        "free Books", 
         //"Business solutions"
     ]
     

@@ -1,8 +1,5 @@
 import React from "react";
-
 import { Navigate, Route, Routes } from "react-router-dom";
-
-// import { useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -18,31 +15,24 @@ import MainHeader from "./pages/MainHeader";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const { authUser } = useAuth(); // Correct way to destructure from the object
   
-  const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
-    
   return (
     <div className="pb-6">
-      <Navbar  />
+      <Navbar />
       <Routes>
         <Route path="/" element={<MainHeader />} />
-        
-        {/*  Default Route */}
-        <Route index element={<Home />}/>
-        
-        <Route path="/Library" element={ authUser ? <Library /> : <Navigate to="/login"/>} />
+        <Route index element={<Home />} />
+        <Route path="/library" element={authUser ? <Library /> : <Navigate to="/login" />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        
-        {/* if page not found */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

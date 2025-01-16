@@ -20,31 +20,49 @@ const LoginForm = () => {
     } = useForm();
     const submitHandler = async (data) => {
         const userInfo = {
-            email: data.email,
-            password: data.password  
-        } 
-        await axios
-        .post("http://localhost:8080/user/login", userInfo)
-        .then ((res) => {
-            console.log(res.data);
-            if(res.data) {
-                toast.success("Log In Successfully");    
-                setTimeout(() => {
-                    navigate("/");              
-                    window.location.reload();
-                    localStorage.setItem("Users", JSON.stringify(res.data.user));
-                }, 3000);
-            }
-        }) .catch ((err) => {
-            if(err.response) {
-                console.log(err);
-                toast.error("error", err.response.data);
-                setTimeout(() => {
-                    
-                }, 3000);
-            }
-        })
-    };
+          email: data.email,
+          password: data.password,
+        };
+      
+        try {
+          const response = await axios.post("https://k-books-rl2y.onrender.com/user/login", userInfo);
+      
+          // Check if response contains the expected fields
+          const { message, user } = response.data;
+          
+          // If the user data is available in the response
+          if (user) {
+            console.log("Login Success:", user);
+            localStorage.setItem("Users", JSON.stringify(user));  // Store user info in localStorage
+            toast.success(message);  // Show success toast with the message
+      
+            // Redirect after login
+            setTimeout(() => {
+              navigate("/");
+              window.location.reload();
+            }, 3000);
+          } else if (message) {
+            toast.success(message); // If no user, show the message in the toast
+          } else {
+            toast.error("Unexpected API response.");
+            console.log("Response doesn't contain expected fields:", response.data);
+          }
+        } catch (error) {
+          // Error handling
+          if (error.response && error.response.status === 401) {
+            toast.error("Invalid email or password.");
+          } else {
+            toast.error("An error occurred during login.");
+          }
+      
+          console.error("Login Error:", error);
+        }
+      };
+      
+      
+      
+
+
     
   return (
     <div>

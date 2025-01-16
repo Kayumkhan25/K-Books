@@ -21,36 +21,57 @@ const SignupForm = () => {
         formState: { errors }
       } = useForm();
       const submitHandler = async (data) => {
+        // Check if the passwords match
         if (data.password !== data.confirmpassword) {
-            toast.error("Passwords are not same");
-            return;
+          toast.error("Passwords do not match!");
+          return; // Prevent the request from being sent if passwords don't match
         }
+      
         const userInfo = {
-            firstName: data.firstname,
-            lastName: data.lastname,
-            email: data.email,
-            password: data.password,
-            confirmPassword : data.confirmpassword   
-        } 
-         await axios
-        .post("http://localhost:8080/user/signup", userInfo)
-        .then ((res) => {
-            console.log(res.data);
-            if(res.data) {
-                toast.success("Sign Up Successfully");    
-                setTimeout(() => {
-                    navigate("/");
-                    window.location.reload();
-                }, 3000);          
-            }
-            localStorage.setItem("Users", JSON.stringify(res.data.user));
-        }) .catch ((err) => {
-            if(err.response) {
-                console.log(err);
-                toast.error("error", err.response.data);
-            }
-        })
-    }
+          firstName: data.firstname,
+          lastName: data.lastname,
+          email: data.email,
+          password: data.password,
+        };
+      
+        try {
+          const res = await axios.post("https://k-books-rl2y.onrender.com/user/signup", userInfo);
+      
+          // Log the successful response data
+          console.log("Signup Response:", res.data);
+      
+          const { message, user } = res.data;
+          if (user) {
+            // Save user info to localStorage
+            localStorage.setItem("Users", JSON.stringify(user));
+      
+            // Debug: Check if the user is saved correctly
+            console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("Users")));
+      
+            toast.success(message || "Signup successful!");
+            navigate("/"); // Redirect to homepage or another page after signup
+          } else {
+            toast.error("Unexpected API response. Please try again.");
+          }
+        } catch (err) {
+          // Log the full error response for debugging
+          console.error("Signup Error:", err);
+          
+          if (err.response) {
+            // If the error response contains data, log it
+            console.log("Error response data:", err.response.data);
+            toast.error(err.response?.data?.message || "An error occurred during signup.");
+          } else {
+            // If there's no response, it might be a network error
+            toast.error("Network error. Please try again.");
+          }
+        }
+      };
+      
+      
+    
+    
+    
   return (
     <div>
         <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col gap-y-4 text-sm">
@@ -104,7 +125,7 @@ const SignupForm = () => {
                         placeholder="Enter password"
                         {...register("password", { required: true })}
                     />
-                     <div class="tooltip z-10">
+                     <div className="tooltip z-10">
                         Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number, and one special character.
                     </div>
                     {errors.password && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
@@ -128,7 +149,7 @@ const SignupForm = () => {
                         placeholder="confirm password"
                         {...register("confirmpassword", { required: true })}
                     />
-                    <div class="tooltip">
+                    <div className="tooltip">
                         Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
                     </div>
                     {errors.confirmpassword && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
