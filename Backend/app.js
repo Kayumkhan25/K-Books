@@ -10,12 +10,13 @@ const app = express();
 dotenv.config();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const DEPLOY_URL = process.env.DEPLOY_URL;
 
 dbConnection();
 
 // Set up CORS middleware to only allow requests from the frontend URL
 app.use(cors({
-    origin: FRONTEND_URL,
+    origin: [FRONTEND_URL,DEPLOY_URL],    
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // You can expand the methods here
     credentials: true,
 }));
