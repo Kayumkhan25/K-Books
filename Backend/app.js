@@ -14,12 +14,27 @@ const DEPLOY_URL = process.env.DEPLOY_URL;
 
 dbConnection();
 
-// Set up CORS middleware to only allow requests from the frontend URL
-app.use(cors({
-    origin: [FRONTEND_URL,DEPLOY_URL],    
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // You can expand the methods here
-    credentials: true,
-}));
+// List of allowed origins (frontend URL and others)
+const allowedOrigins = [
+    DEPLOY_URL, FRONTEND_URL
+  ];
+  
+  const corsOptions = {
+    origin: function (origin, callback) {
+      // Check if the origin is in the allowed list
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error('Not allowed by CORS')); // Reject the request
+      }
+    },
+    methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
+    allowedHeaders: 'Content-Type,Authorization', // Allowed headers
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  };
+  // Apply CORS middleware to your app
+  app.use(cors(corsOptions));
+  
 
 app.use(express.json());
 app.use(urlencoded({extended: true}));

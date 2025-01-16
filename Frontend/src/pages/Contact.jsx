@@ -11,7 +11,7 @@ const Contact = () => {
   
   
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-24 pb-8 md:pb-10 md:pt-28">
+    <section className="max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-24 pb-8 md:pb-10 md:pt-28">
       <div className="flex md:flex-row flex-col md:max-w-7xl gap-x-20 gap-y-12 justify-center mx-auto my-9 md:my-20" >
         <div className="bg-slate-200 dark:bg-slate-900 h-2/3  rounded-xl">
           <ContactDetails/>
@@ -21,7 +21,7 @@ const Contact = () => {
           <ContactForm />
         </div>        
       </div>
-    </div>
+    </section>
   )
 }
 

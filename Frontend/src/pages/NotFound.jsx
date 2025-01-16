@@ -22,7 +22,7 @@ const NotFound = () => {
   
   
   return (
-    <div className="text-center max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-16 pb-4 md:pb-10 md:pt-10 flex flex-col gap-1 items-center justify-center bg-slate-100
+    <section className="text-center max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-16 pb-4 md:pb-10 md:pt-10 flex flex-col gap-1 items-center justify-center bg-slate-100
         dark:bg-slate-950
     ">
       <img src={NotFoundImg} alt="404" className="not-found-image" />
@@ -31,7 +31,7 @@ const NotFound = () => {
       <Link to="/" className="not-found-link"
         style={{backgroundColor: color, transition: 'background-color 1s ease',}}
       >Back to Home</Link>
-    </div>
+    </section>
   );
 };
 

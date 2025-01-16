@@ -10,10 +10,10 @@ const Library = () => {
   }, [])
   
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-22 px-4 min-h-screen pt-24 pb-8 md:pb-10 md:pt-28">
+    <section className="max-w-screen-2xl container mx-auto md:px-22 px-4 min-h-screen pt-24 pb-8 md:pb-10 md:pt-28">
       <Top />
       <Course />
-    </div>
+    </section>
   )
 }
 

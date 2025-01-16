@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Templete = ({title, desc1, desc2, image, formType}) => {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row gap-x-4 justify-evenly items-center w-11/12 mt-16 py-10 max-w-screen-2xl container mx-auto md:px-20 px-4">
+    <section className="min-h-screen flex flex-col lg:flex-row gap-x-4 justify-evenly items-center w-11/12 mt-16 py-10 max-w-screen-2xl container mx-auto md:px-20 px-4">
       <div className=
         {`
           ${
@@ -46,7 +46,7 @@ const Templete = ({title, desc1, desc2, image, formType}) => {
           } 
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

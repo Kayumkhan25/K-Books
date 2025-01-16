@@ -12,7 +12,7 @@ const About = () => {
   }, [])
   
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-24 pb-4 md:pb-10 md:pt-28">
+    <section className="max-w-screen-2xl container mx-auto md:px-20 px-4 min-h-screen pt-24 pb-4 md:pb-10 md:pt-28">
       <div className="flex flex-col gap-y-16 md:gap-y-24">
         {/* Section 1 */}
         <div className="text-center">
@@ -37,7 +37,7 @@ const About = () => {
           <Brief/>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

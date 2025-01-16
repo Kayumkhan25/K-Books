@@ -5,7 +5,7 @@ import Bottom from "./common/Footer/Bottom";
 
 const Footer = () => {
   return (
-    <div className="footer_section bg-slate-100 mx-10 rounded-2xl border border-green-300 dark:bg-slate-900">
+    <footer className="footer_section bg-slate-100 mx-10 rounded-2xl border border-green-300 dark:bg-slate-900">
        <div className="mx-auto max-w-full py-8 lg:flex justify-evenly px-3 hidden">
            <div>
                <Company />
@@ -19,7 +19,7 @@ const Footer = () => {
        <div className="p-10 max-w-[80rem] mx-auto">
            <Bottom />
        </div>
-    </div>
+    </footer>
   )
 }
 

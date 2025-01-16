@@ -9,7 +9,7 @@ const Home = () => {
   }, [])
   
   return (
-    <div className="min-h-min">   
+    <section className="min-h-min">   
         <div>
           <Banner />
         </div>
@@ -17,7 +17,7 @@ const Home = () => {
           <Unpaid />
         </div>
         
-    </div>
+    </section>
   )
 }
 
