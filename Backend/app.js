@@ -10,7 +10,7 @@ const app = express();
 dotenv.config();
 
 // Environment Variables
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+const FRONTEND_URL = process.env.FRONTEND_URL;
 const DEPLOY_URL = process.env.DEPLOY_URL;
 
 // Connect to the database
@@ -18,8 +18,8 @@ dbConnection();
 
 // List of allowed origins
 const allowedOrigins = [
-  FRONTEND_URL,                // Local development
-  DEPLOY_URL,                  // Specific deployment URL
+  FRONTEND_URL,                // Local development 
+  DEPLOY_URL,                  // Specific deployment URL    // Vite dev server (common dev port for Vite)
   /\.vercel\.app$/,            // Allow all Vercel subdomains dynamically
 ];
 
@@ -48,7 +48,6 @@ const corsOptions = {
 
 // Middleware
 app.use(cors(corsOptions));
-app.use(cors({ origin: "*" }));
 
 app.use(express.json()); // Parse JSON bodies
 app.use(urlencoded({ extended: true })); // Parse URL-encoded bodies
