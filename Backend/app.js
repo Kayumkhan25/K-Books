@@ -57,6 +57,27 @@ app.get("/", (req, res) => {
   res.status(200).send("Server is running");
 });
 
+app.get("/library", (req, res) => {
+  res.status(200).send("Library page");
+});
+
+app.get("/about", (req, res) => {
+  res.status(200).send("About page");
+});
+
+app.get("/contact", (req, res) => {
+  res.status(200).send("Contact page");
+});
+
+app.get("/login", (req, res) => {
+  res.status(200).send("Login page");
+});
+
+app.get("/signup", (req, res) => {
+  res.status(200).send("SignUp page");
+});
+
+
 // Routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
