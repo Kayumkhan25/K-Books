@@ -19,7 +19,7 @@ dbConnection();
 // List of allowed origins
 const allowedOrigins = [
   FRONTEND_URL,                // Local development 
-  DEPLOY_URL,                  // Specific deployment URL    // Vite dev server (common dev port for Vite)
+  DEPLOY_URL,                  // Specific deployment URL
   /\.vercel\.app$/,            // Allow all Vercel subdomains dynamically
 ];
 

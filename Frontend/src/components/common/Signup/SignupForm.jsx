@@ -32,6 +32,7 @@ const SignupForm = () => {
           lastName: data.lastname,
           email: data.email,
           password: data.password,
+          confirmPassword: data.confirmpassword
         };
       
         try {
@@ -39,20 +40,17 @@ const SignupForm = () => {
       
           // Log the successful response data
           console.log("Signup Response:", res.data);
-      
           const { message, user } = res.data;
           if (user) {
             // Save user info to localStorage
             localStorage.setItem("Users", JSON.stringify(user));
-      
             // Debug: Check if the user is saved correctly
             console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("Users")));
-      
             toast.success(message || "Signup successful!");
             navigate("/"); // Redirect to homepage or another page after signup
-          } else {
+            } else {
             toast.error("Unexpected API response. Please try again.");
-          }
+            }
         } catch (err) {
           // Log the full error response for debugging
           console.error("Signup Error:", err);
@@ -164,7 +162,7 @@ const SignupForm = () => {
                     </span>
                 </label>
             </div>
-            <button type="submit" className="bg-yellow-400 border border-yellow-500 hover:bg-yellow-500 py-2 px-3 mt-6 rounded-lg font-medium text-lg text-[#000815] transition-all duration-300">
+            <button type="submit" className="bg-yellow-400 hover:bg-yellow-500 py-2 px-3 mt-6 rounded-lg font-medium text-xl text-slate-900 transition-all duration-300">
                 Create Account
             </button>
         </form>
