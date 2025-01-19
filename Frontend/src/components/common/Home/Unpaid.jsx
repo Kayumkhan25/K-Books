@@ -56,6 +56,7 @@ const Unpaid = () => {
             const res = await axios.get("https://k-books-rl2y.onrender.com/book");
             const data = res.data.filter((data) => data.price === 0)
             setBooks(data);
+            console.log("books", books);
         } catch (error) {
             console.log("error:", error);
         }

@@ -9,7 +9,6 @@ import About from "./pages/About";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Contact from "./pages/Contact";
-
 import { useAuth } from "./context/AuthProvider";
 import MainHeader from "./pages/MainHeader";
 import NotFound from "./pages/NotFound";
