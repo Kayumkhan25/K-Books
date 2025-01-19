@@ -35,7 +35,6 @@ const LoginForm = () => {
             console.log("Login Success:", user);
             localStorage.setItem("Users", JSON.stringify(user));  // Store user info in localStorage
             toast.success(message);  // Show success toast with the message
-      
             // Redirect after login
             setTimeout(() => {
               navigate("/");
@@ -54,7 +53,6 @@ const LoginForm = () => {
           } else {
             toast.error("An error occurred during login.");
           }
-      
           console.error("Login Error:", error);
         }
       };

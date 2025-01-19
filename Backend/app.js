@@ -1,3 +1,4 @@
+// app.js
 import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -5,46 +6,48 @@ import { dbConnection } from "./database/dbConnection.js";
 import bookRoute from "./route/bookRoute.js";
 import userRoute from "./route/userRoute.js";
 
-const app = express(); 
-
+const app = express();
 dotenv.config();
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+// Environment Variables
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 const DEPLOY_URL = process.env.DEPLOY_URL;
 
+// Connect to the database
 dbConnection();
 
-// List of allowed origins (frontend URL and others)
-const allowedOrigins = [
-    DEPLOY_URL, FRONTEND_URL
-  ];
-  
-  const corsOptions = {
-    origin: function (origin, callback) {
-      // Check if the origin is in the allowed list
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true); // Allow the request
-      } else {
-        callback(new Error('Not allowed by CORS')); // Reject the request
-      }
-    },
-    methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
-    allowedHeaders: 'Content-Type,Authorization', // Allowed headers
-    credentials: true, // Allow credentials (cookies, authorization headers)
-  };
-  // Apply CORS middleware to your app
-  app.use(cors(corsOptions));
-  
+// List of allowed origins
+const allowedOrigins = [DEPLOY_URL, FRONTEND_URL];
 
-app.use(express.json());
-app.use(urlencoded({extended: true}));
+// CORS Options
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests from allowed origins or no origin (like Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.error(`CORS error: Origin ${origin} not allowed`);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods
+  allowedHeaders: "Content-Type,Authorization", // Allowed headers
+  credentials: true, // Allow cookies or authentication headers
+};
 
+// Middleware
+app.use(cors(corsOptions));
+app.use(express.json()); // Parse JSON bodies
+app.use(urlencoded({ extended: true })); // Parse URL-encoded bodies
+
+// Health Check Route
 app.get("/", (req, res) => {
-    res.send("Server is running");
+  res.status(200).send("Server is running");
 });
 
-// user route
+// Routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
+// Default export for server startup
 export default app;
