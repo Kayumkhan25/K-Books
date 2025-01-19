@@ -17,26 +17,39 @@ const DEPLOY_URL = process.env.DEPLOY_URL;
 dbConnection();
 
 // List of allowed origins
-const allowedOrigins = [DEPLOY_URL, FRONTEND_URL];
+const allowedOrigins = [
+  FRONTEND_URL,                // Local development
+  DEPLOY_URL,                  // Specific deployment URL
+  /\.vercel\.app$/,            // Allow all Vercel subdomains dynamically
+];
+
 
 // CORS Options
 const corsOptions = {
   origin: (origin, callback) => {
-    // Allow requests from allowed origins or no origin (like Postman)
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin || // Allow tools like Postman without an origin
+      allowedOrigins.some((allowedOrigin) =>
+        typeof allowedOrigin === "string"
+          ? allowedOrigin === origin // Exact match
+          : allowedOrigin.test(origin) // Regular expression match
+      )
+    ) {
       callback(null, true);
     } else {
       console.error(`CORS error: Origin ${origin} not allowed`);
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods
-  allowedHeaders: "Content-Type,Authorization", // Allowed headers
-  credentials: true, // Allow cookies or authentication headers
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true,
 };
 
 // Middleware
 app.use(cors(corsOptions));
+app.use(cors({ origin: "*" }));
+
 app.use(express.json()); // Parse JSON bodies
 app.use(urlencoded({ extended: true })); // Parse URL-encoded bodies
 
