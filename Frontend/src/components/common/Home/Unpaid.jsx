@@ -30,11 +30,11 @@ const Unpaid = () => {
                 }
             },
             {
-                breakpoint: 640,
+                breakpoint: 680,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
                 }
             },
             {
@@ -71,12 +71,12 @@ const Unpaid = () => {
             <h1 className="text-2xl font-semibold pb-3">
                 Read for Free
             </h1>
-            <p className="text-lg">
+            <p className="text-lg md:text-xl">
                 "Every free book is an opportunity—a chance to learn, grow, and escape into new realities. 
                 In a world where knowledge should be accessible to all, we believe that every story deserves to be shared."
             </p>
         </div>
-        <div className="slider-container max-w-screen-xl mx-auto">
+        <div className="slider-container max-w-screen-xl m-2 px-6 md:px-10 mx-auto">
             <Slider {...slides}>
                 {
                     books.map((item) => (

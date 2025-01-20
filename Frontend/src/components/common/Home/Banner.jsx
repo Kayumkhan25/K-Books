@@ -8,7 +8,7 @@ const Banner = () => {
     const [color, setColor] = useState("#7b18b1");
   
     // Array of colors you want to cycle through
-    const colors = ['#b13f3f', '#17829a', '#0d2c9e', '#2aad1e', '#cc1ea4'];
+    const colors = ['#17829a', '#0d9c9e', '#50a5a1', '#90477f'];
     
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -49,7 +49,7 @@ const Banner = () => {
                     <h1 className='text-3xl md:text-4xl font-semibold '>
                         Hello, Welcome to Your <span className="gradient_color">Gateway to Knowledge!</span>
                     </h1>
-                    <p className="text-lg">
+                    <p className="text-xl">
                         "Discover the joy of reading with our curated selection of books!
                         Whether you're looking for the latest bestsellers, timeless classics, or hidden gems, we have something for every reader."
                     </p>
