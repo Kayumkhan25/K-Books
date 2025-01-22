@@ -32,7 +32,9 @@ export const signup = async (req, res) => {
         res.status(201).json({
             message: `Welcome ${newUser.firstName}! YOU HAVE SUCCESSFULLY REGISTERD`,
             user: {
+                _id: newUser._id,
                 firstName: newUser.firstName,
+                email: newUser.email,
             }
         }); 
     } catch (error) {
@@ -84,8 +86,14 @@ export const login = async (req, res) => {
 
         // Send success response
         res.status(200).json({
-            message: `Login successfully, Welcome ${user.firstName}!`
-        });
+            message: `Login successfully, Welcome ${user.firstName}!`,
+            user: {
+                    _id: createdUser._id,
+                    firstName: newUser.firstName,
+                    email: newUser.email,
+                }
+            }
+        );
     } catch (error) {
         console.error("Error during login: ", error.message);
         res.status(500).json({ message: "Internal server error" });
