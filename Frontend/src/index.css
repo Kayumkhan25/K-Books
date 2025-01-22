@@ -24,9 +24,12 @@ body {
     padding: 0.5rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;
+    top: 100%;
+    left: 0;
+    transform: translateY(5px);
 }
 
-input:hover+.tooltip {
+label .flex:hover .tooltip {
     display: block;
 }
 

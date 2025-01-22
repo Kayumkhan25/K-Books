@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
+import { FaRegQuestionCircle } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
 import { useForm } from "react-hook-form";
-
 import axios from "axios";
 
 const SignupForm = () => {
@@ -109,8 +108,14 @@ const SignupForm = () => {
                 {errors.email && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
             </label>
             <div className="md:flex justify-between gap-x-3">
-                <label className="relative w-full">
-                    <p className="mb-1 text-[15px]">Create password<sup className="text-red-500">*</sup></p>
+                <label className="relative w-full ">
+                    <div className="flex gap-1">
+                        <p className="mb-1 text-[15px]">Create password<sup className="text-red-500">*</sup></p>
+                        <FaRegQuestionCircle className="text-sm text-yellow-500 "/>
+                        <div className="tooltip">
+                            Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number, and one special character.
+                        </div>
+                    </div>
                     <input 
                         type={showCreatePass ? ("text") : ("password")}
                         name="password"
@@ -119,9 +124,6 @@ const SignupForm = () => {
                         placeholder="Enter password"
                         {...register("password", { required: true })}
                     />
-                     <div className="tooltip z-10">
-                        Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number, and one special character.
-                    </div>
                     {errors.password && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
                     <span className="absolute right-2 cursor-pointer top-9"
                         onClick={() => setShowCreatePass(!showCreatePass)}
@@ -134,7 +136,14 @@ const SignupForm = () => {
                     </span>
                 </label>
                 <label className="relative w-full">
-                    <p className="mb-1 text-[15px]">Confirm password<sup className="text-red-500">*</sup></p>
+                    <div className="flex gap-1">
+                        <p className="mb-1 text-[15px]">Confirm password<sup className="text-red-500">*</sup></p>
+                        <FaRegQuestionCircle className="text-sm text-yellow-500"/>
+                        <div className="tooltip">
+                            Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
+                        </div>
+                    </div>
+
                     <input 
                         type={showConfirmPass ? ("text") : ("password")}
                         name="confirmPassword"
@@ -143,9 +152,6 @@ const SignupForm = () => {
                         placeholder="confirm password"
                         {...register("confirmpassword", { required: true })}
                     />
-                    <div className="tooltip">
-                        Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
-                    </div>
                     {errors.confirmpassword && <p className="text-red-500 leading-8 text-right pr-2">This field is required</p>}
                     <span className="absolute right-2 cursor-pointer mt-2 md:top-7"
                         onClick={() => setShowConfirmPass(!showConfirmPass)}

@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 
 const App = () => {
   const { authUser } = useAuth(); // Correct way to destructure from the object
+  console.log(authUser);
   
   return (
     <div className="pb-6">
