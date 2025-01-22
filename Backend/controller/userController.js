@@ -30,7 +30,10 @@ export const signup = async (req, res) => {
 
         // Send success response
         res.status(201).json({
-            message: `Welcome ${newUser.firstName}! YOU HAVE SUCCESSFULLY REGISTERD`
+            message: `Welcome ${newUser.firstName}! YOU HAVE SUCCESSFULLY REGISTERD`,
+            user: {
+                firstName: newUser.firstname,
+            }
         }); 
     } catch (error) {
         // Handle validation errors

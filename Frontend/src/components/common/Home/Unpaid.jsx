@@ -34,7 +34,6 @@ const Unpaid = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    initialSlide: 1
                 }
             },
             {
@@ -76,7 +75,7 @@ const Unpaid = () => {
                 In a world where knowledge should be accessible to all, we believe that every story deserves to be shared."
             </p>
         </div>
-        <div className="slider-container max-w-screen-xl m-2 px-6 md:px-10 mx-auto">
+        <div className="slider-container max-w-screen-xl m-2 px-6 rounded-lg md:px-10 mx-auto">
             <Slider {...slides}>
                 {
                     books.map((item) => (
