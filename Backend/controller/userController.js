@@ -32,7 +32,7 @@ export const signup = async (req, res) => {
         res.status(201).json({
             message: `Welcome ${newUser.firstName}! YOU HAVE SUCCESSFULLY REGISTERD`,
             user: {
-                firstName: newUser.firstname,
+                firstName: newUser.firstName,
             }
         }); 
     } catch (error) {
