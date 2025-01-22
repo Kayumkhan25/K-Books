@@ -18,11 +18,12 @@ body {
 
 .tooltip {
     display: none;
+    z-index: 10;
     position: absolute;
     background-color: rgba(10, 10, 10, 0.75);
     color: white;
     padding: 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     font-size: 0.875rem;
     top: 100%;
     left: 0;
