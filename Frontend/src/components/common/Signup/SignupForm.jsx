@@ -138,10 +138,6 @@ const SignupForm = () => {
                 <label className="relative w-full">
                     <div className="flex gap-1">
                         <p className="mb-1 text-[15px]">Confirm password<sup className="text-red-500">*</sup></p>
-                        <FaRegQuestionCircle className="text-sm text-yellow-500"/>
-                        <div className="tooltip">
-                            Password must be at least 8 characters long, include at least one uppercase, one lowercase letter, one number and one special character.
-                        </div>
                     </div>
 
                     <input 

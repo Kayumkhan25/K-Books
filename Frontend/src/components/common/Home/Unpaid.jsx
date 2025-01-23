@@ -47,7 +47,7 @@ const Unpaid = () => {
               }
             },
             {
-              breakpoint: 600,
+              breakpoint: 680,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

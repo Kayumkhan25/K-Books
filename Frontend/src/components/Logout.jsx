@@ -1,9 +1,9 @@
 import React from "react";
-import useAuth from "../context/AuthProvider"
+import {useAuth} from "../context/AuthProvider"
 import toast from "react-hot-toast";
 
 const Logout = () => {
-    const [authUser, setAuthUser] = useAuth();
+  const { authUser, setAuthUser } = useAuth(); 
     
     const logoutHandler = () => {
         try {

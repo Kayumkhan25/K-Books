@@ -13,7 +13,7 @@ const Course = () => {
       try {
         // use axios to get data from backend
         const res = await axios.get("https://k-books-rl2y.onrender.com/book");
-        console.log(res.data);
+        // console.log(res.data);
         setBooks(res.data);
       } catch (error) {
         console.log("error:", error);

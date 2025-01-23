@@ -9,8 +9,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const initialAuthUser = localStorage.getItem("Users");
 
-    // Check if the item is not null, undefined, or the string "undefined"
-    if (initialAuthUser && initialAuthUser !== "undefined") {
+    if (initialAuthUser) {
       try {
         const parsedUser = JSON.parse(initialAuthUser);
         setAuthUser(parsedUser);
@@ -21,7 +20,7 @@ export default function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={[authUser, setAuthUser]}>
+    <AuthContext.Provider value={{ authUser, setAuthUser }}>
       {children}
     </AuthContext.Provider>
   );

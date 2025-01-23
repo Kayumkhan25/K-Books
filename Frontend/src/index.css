@@ -128,7 +128,7 @@ label .flex:hover .tooltip {
 /* Active dot style */
 
 .slick-dots li.slick-active button {
-    background-color: rgb(10, 159, 10);
+    background-color: rgb(10, 170, 10);
     /* Black color for active dot */
 }
 
