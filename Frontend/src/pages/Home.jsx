@@ -12,7 +12,7 @@ const Home = () => {
     <section className="min-h-min">   
         <div>
           <Banner />
-        </div>
+        </div> 
         <div className="my-9 md:my-12">
           <Unpaid />
         </div>

@@ -78,3 +78,64 @@ label .flex:hover .tooltip {
 .not-found-link:hover {
     background-color: #0056b3;
 }
+
+
+/* Customize arrows */
+
+.slick-prev,
+.slick-next {
+    color: rgb(20, 119, 114);
+}
+
+
+/* Optional: Customize the default arrow icon */
+
+.slick-prev::before,
+.slick-next::before {
+    /* Make arrows larger */
+    color: rgb(61, 200, 37);
+    /* Black color for arrow */
+}
+
+
+/* Customize Dots */
+
+
+/* .slick-dots {
+    bottom: -20px;
+    Adjust the position of the dots if needed text-align: center;
+    padding: 0;
+}
+ */
+
+
+/* Default dot style */
+
+.slick-dots li button {
+    background-color: #ccc;
+    /* Gray background for the dots */
+    border-radius: 50%;
+    /* Make dots circular */
+    width: 20px;
+    /* Dot size */
+    height: 20px;
+    /* Dot size */
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Active dot style */
+
+.slick-dots li.slick-active button {
+    background-color: rgb(10, 159, 10);
+    /* Black color for active dot */
+}
+
+
+/* Hover effect on dots */
+
+.slick-dots li button:hover {
+    background-color: #177309;
+    /* Darker gray on hover */
+}
