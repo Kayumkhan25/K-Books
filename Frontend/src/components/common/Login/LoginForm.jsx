@@ -38,7 +38,7 @@ const LoginForm = () => {
             // Redirect after login
             setTimeout(() => {
               navigate("/");
-              // window.location.reload();
+              window.location.reload();
             }, 3000);
           } else if (message) {
             toast.success(message); // If no user, show the message in the toast

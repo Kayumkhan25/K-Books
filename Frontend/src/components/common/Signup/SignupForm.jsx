@@ -46,7 +46,8 @@ const SignupForm = () => {
             // Debug: Check if the user is saved correctly
             console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("Users")));
             toast.success(message || "Signup successful!");
-            navigate("/"); // Redirect to homepage or another page after signup
+            navigate("/"); 
+            window.location.reload();
             } else {
             toast.error("Unexpected API response. Please try again.");
             }
