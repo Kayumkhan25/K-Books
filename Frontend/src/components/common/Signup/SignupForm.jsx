@@ -5,12 +5,13 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Loading2 from "../../Loading2";
 
 const SignupForm = () => {
- 
-    
+  
     const [showCreatePass, setShowCreatePass] = useState(false);
     const [showConfirmPass, setShowConfirmPass] = useState(false);
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
         
     const {
@@ -33,7 +34,7 @@ const SignupForm = () => {
           password: data.password,
           confirmPassword: data.confirmpassword
         };
-      
+        setLoader(true);
         try {
           const res = await axios.post("https://k-books-rl2y.onrender.com/user/signup", userInfo);
       
@@ -63,6 +64,9 @@ const SignupForm = () => {
             // If there's no response, it might be a network error
             toast.error("Network error. Please try again.");
           }
+        }
+        finally {
+            setLoader(false); // Re-enable the button when request is complete
         }
       };
       
@@ -162,7 +166,14 @@ const SignupForm = () => {
                 </label>
             </div>
             <button type="submit" className="bg-yellow-400 hover:bg-yellow-500 py-2 px-3 mt-6 rounded-lg font-medium text-xl text-slate-900 transition-all duration-300">
-                Create Account
+                {
+                  loader ? (<div><Loading2 /></div>) :
+                  (<div>
+                    Create User
+                  </div>
+                    
+                    )
+                }
             </button>
         </form>
     </div>

@@ -46,7 +46,6 @@ const LoginForm = () => {
             toast.error("Unexpected API response.");
             console.log("Response doesn't contain expected fields:", response.data);
           }
-          setLoader(false);
         } catch (error) {
           // Error handling
           if (error.response) {
