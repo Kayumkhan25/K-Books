@@ -6,18 +6,22 @@ import Cards from "./Cards";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Loading from "../../Loading";
 
 const Unpaid = () => {
     
     const [books, setBooks] = useState([]);
+    const [loader, setLoader] = useState(false);
   
     useEffect(() => {
         const getBook = async () => {
         try {
+            setLoader(true);
             // use axios to get data from backend
             const res = await axios.get("https://k-books-rl2y.onrender.com/book");
             const data = res.data.filter((data) => data.price === 0)
             setBooks(data);
+            setLoader(false);
         } catch (error) {
             console.log("error:", error);
         }
@@ -69,13 +73,16 @@ const Unpaid = () => {
             </p>
         </div>
         <div className="slider-container max-w-screen-xl m-2 px-6 rounded-lg md:px-10 mx-auto">
-            <Slider {...slides}>
-                {
-                    books.map((item) => (
-                        <Cards item = {item} key={item.id}/>
-                    ))
-                }
-            </Slider>
+            {
+                loader ? (<Loading />) :
+                (<Slider {...slides}>
+                    {
+                        books.map((item) => (
+                            <Cards item = {item} key={item.id}/>
+                        ))
+                    }
+                </Slider>)
+            }
         </div>
     </div>
   )

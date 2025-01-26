@@ -3,14 +3,14 @@ import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 import { useState } from "react";
 import {Link, useNavigate} from "react-router-dom";
 import toast from "react-hot-toast";
-
 import { useForm } from "react-hook-form";
-
 import axios from "axios";
+import Loading2 from "../../Loading2";
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const [loader, setLoader] = useState(false);
     
     const {
         register,
@@ -23,10 +23,10 @@ const LoginForm = () => {
           email: data.email,
           password: data.password,
         };
-      
+        setLoader(true);
         try {
+
           const response = await axios.post("https://k-books-rl2y.onrender.com/user/login", userInfo);
-      
           // Check if response contains the expected fields
           const { message, user } = response.data;
           
@@ -46,14 +46,21 @@ const LoginForm = () => {
             toast.error("Unexpected API response.");
             console.log("Response doesn't contain expected fields:", response.data);
           }
+          setLoader(false);
         } catch (error) {
           // Error handling
-          if (error.response && error.response.status === 401) {
-            toast.error("Invalid email or password.");
+          if (error.response) {
+              if (error.response.status === 401) {
+                  toast.error("Invalid email or password.");
+              } else {
+                  toast.error(`Error: ${error.response.statusText}`);
+              }
           } else {
-            toast.error("An error occurred during login.");
+              toast.error("An error occurred during login.");
           }
           console.error("Login Error:", error);
+        } finally {
+          setLoader(false); // Re-enable the button when request is complete
         }
       };
           
@@ -93,7 +100,14 @@ const LoginForm = () => {
                 </Link>
             </label>
             <button type="submit" className="bg-yellow-400 border border-yellow-500 hover:bg-yellow-500 py-2 px-3 mt-6 rounded-lg font-medium text-lg text-[#000815] transition-all duration-300">
-                Log In
+                {
+                  loader ? (<div><Loading2 /></div>) :
+                  (<div>
+                    Log In
+                  </div>
+                    
+                    )
+                }
             </button>
         </form>
     </div>
