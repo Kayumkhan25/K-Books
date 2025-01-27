@@ -102,7 +102,7 @@ const LoginForm = () => {
                 {
                   loader ? (<div><Loading2 /></div>) :
                   (<div>
-                    Log In
+                    Login
                   </div>
                     
                     )
