@@ -24,7 +24,7 @@ const allowedOrigins = [
 ];
 
 
-// CORS Options
+// Prevent unauthorized website to make API request
 const corsOptions = {
   origin: (origin, callback) => {
     if (
@@ -35,15 +35,15 @@ const corsOptions = {
           : allowedOrigin.test(origin) // Regular expression match
       )
     ) {
-      callback(null, true);
+      callback(null, true); 
     } else {
       console.error(`CORS error: Origin ${origin} not allowed`);
-      callback(new Error("Not allowed by CORS"));
+      callback(new Error("Not allowed by CORS")); // Send cors errors to client
     }
   },
   methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-  credentials: true,
+  allowedHeaders: "Content-Type,Authorization", // specifies the allowed header in the request
+  credentials: true, // It allows cookies to be send with cross-origin requests
 };
 
 // Middleware

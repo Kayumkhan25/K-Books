@@ -25,8 +25,21 @@ const App = () => {
         <Route path="/library" element={authUser ? <Library /> : <Navigate to="/login" />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+
+        {/* Conditionally render Login and Signup routes */}
+        {!authUser ? (
+          <>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<Navigate to="/" />} /> 
+            <Route path="/signup" element={<Navigate to="/" />} /> 
+          </>
+        )
+        }
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

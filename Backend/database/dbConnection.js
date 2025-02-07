@@ -3,11 +3,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Check if MONGO_URL is set in .env file
 const connectionString = process.env.MONGO_URL;
 
 if (!connectionString) {
-  console.error("MONGO_URL is not defined in the .env file");
+  console.error("Databse URL is not defined");
   process.exit(1);  // Exit the process if MONGO_URL is missing
 }
 

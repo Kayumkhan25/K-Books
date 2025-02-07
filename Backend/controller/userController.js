@@ -28,7 +28,7 @@ export const signup = async (req, res) => {
         const newUser = new User({ firstName, lastName, email, password });
         await newUser.save();
 
-        // Send success response
+        // Send success response for created user
         res.status(201).json({
             message: `Welcome ${newUser.firstName}! YOU HAVE SUCCESSFULLY REGISTERD`,
             user: {
@@ -41,10 +41,10 @@ export const signup = async (req, res) => {
         // Handle validation errors
         if (error.name === "ValidationError") {
             const errors = Object.values(error.errors).map(err => err.message);
-            return res.status(400).json({ message: errors });
+            return res.status(400).json({ message: errors }); // Bad Request
         } 
         console.error("Error in storing data: ", error);
-        res.status(500).json({ message: "Internal server error" });
+        res.status(500).json({ message: "Internal server error" }); 
     }
 }; 
 
@@ -75,7 +75,7 @@ export const login = async (req, res) => {
         // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(401).json({ message: "User does not exist" });
+            return res.status(401).json({ message: "User does not exist" }); // Unauthorized
         }
 
         // Compare passwords
@@ -84,7 +84,7 @@ export const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid password" });
         }
 
-        // Send success response
+        // Send success response ok
         res.status(200).json({
             message: `Login successfully, Welcome ${user.firstName}!`,
             user: {

@@ -14,12 +14,14 @@ const SignupForm = () => {
     const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
         
+    // initialization
     const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors }
+        register, // to register input fields
+        handleSubmit, // to handle form submission
+        watch, // to watch for changes in form values
+        formState: { errors } //Object containing form validation errors
       } = useForm();
+      
       const submitHandler = async (data) => {
         // Check if the passwords match
         if (data.password !== data.confirmpassword) {
@@ -43,7 +45,7 @@ const SignupForm = () => {
           const { message, user } = res.data;
           if (user) {
             // Save user info to localStorage
-            localStorage.setItem("Users", JSON.stringify(user));
+            localStorage.setItem("Users", JSON.stringify(user)); // convert object into string
             // Debug: Check if the user is saved correctly
             console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("Users")));
             toast.success(message || "Signup successful!");

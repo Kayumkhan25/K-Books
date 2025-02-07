@@ -14,6 +14,7 @@ const Course = () => {
         // use axios to get data from backend
         const res = await axios.get("https://k-books-rl2y.onrender.com/book");
         // console.log(res.data);
+        // const data = res.data.filter((data) => data.price >100);
         setBooks(res.data);
       } catch (error) {
         console.log("error:", error);
