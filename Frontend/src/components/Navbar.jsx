@@ -113,7 +113,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="cursor-pointer ">
-                    <img src={Logo} className="w-40 md:w-48 px-2 py-1 h-full"/>
+                    <img src={Logo} alt="logo-image" className="w-40 md:w-48 px-2 py-1 h-full"/>
                 </Link>
             </div>
             <div className="navbar-end gap-x-3">

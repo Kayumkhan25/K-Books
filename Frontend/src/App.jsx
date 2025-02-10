@@ -17,7 +17,7 @@ const App = () => {
   console.log(authUser);
   
   return (
-    <div className="pb-6">
+    <div className="pb-6 ">
       <Navbar />
       <Routes>
         <Route path="/" element={<MainHeader />} />

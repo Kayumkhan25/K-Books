@@ -4,10 +4,10 @@ import NotFoundImg from "../assets/images/NotFoundImg.png";
 
 const NotFound = () => {
   
-  const [color, setColor] = useState("#7b18b1");
+  const [color, setColor] = useState("#0d7a7e");
   
   // Array of colors you want to cycle through
-  const colors = ['#cc1d40', '#1c8664', '#0d7a7e', '#a2b210', '#290ed4'];
+  const colors = ['#cc1d40', '#1c8964', '#0d7a7e', '#7b18b1', '#290aa4'];
   
   useEffect(() => {
     const intervalId = setInterval(() => {

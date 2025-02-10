@@ -6,7 +6,7 @@ const Cards = ({item}) => {
   return (
     <div>
         <div className="my-6">
-            <div className="card bg-base-10 w-80 lg:w-[350px] h-[450px] lg:h-[480px] mx-auto shadow-sm bg-slate-100 border-t-[1px] border-green-900 shadow-green-300 my-2 hover:scale-105 duration-300 hover:shadow-md hover:shadow-slate-400
+            <div className="card bg-base-10 w-80 lg:w-[320px] h-[420px] lg:h-[450px] mx-auto shadow-sm bg-slate-100 border-t-[1px] border-green-900 shadow-green-300 my-2 hover:scale-105 duration-300 hover:shadow-md hover:shadow-slate-400
                 dark:bg-slate-900">
                 <figure className="h-52">
                     <img

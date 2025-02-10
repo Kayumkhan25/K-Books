@@ -13,10 +13,10 @@ const LoginForm = () => {
     const [loader, setLoader] = useState(false);
     
     const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors }
+        register,  // to register input fields
+        handleSubmit, // to handle form submission
+        watch, // to watch for changes in form values
+        formState: { errors } //Object containing form validation errors
     } = useForm();
     
     const submitHandler = async (data) => {
