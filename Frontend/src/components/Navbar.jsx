@@ -58,7 +58,7 @@ const Navbar = () => {
           type="checkbox"
           checked={theme === "dark"}
           onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="toggle theme-controller col-span-2 col-start-1 row-start-1 border-sky-400 bg-green-300 checked:bg-blue-300"
+          className="toggle theme-controller col-span-2 col-start-1 row-start-1 border-sky-400 text-green-500 bg-green-300 checked:bg-blue-300"
         />
         {/* <svg
           className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
